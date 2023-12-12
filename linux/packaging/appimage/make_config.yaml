@@ -1,9 +1,9 @@
-display_name: HiddifyNext
+display_name: hiddify
 
 icon: ./assets/images/source/ic_launcher_border.png
 
 keywords:
-  - Hiddify
+  - hiddify
   - Proxy
   - VPN
   - V2ray
@@ -12,7 +12,7 @@ keywords:
   - Psiphon
   - OpenVPN
 
-generic_name: Hiddify
+generic_name: hiddify
 
 actions:
   - name: Start

@@ -65,9 +65,9 @@ void switchTab(int index, BuildContext context) {
       const HomeRoute().go(context);
     case 1:
       const ProxiesRoute().go(context);
-    case 2:
-      const LogsOverviewRoute().go(context);
     case 3:
+      const LogsOverviewRoute().go(context);
+    case 2:
       const SettingsRoute().go(context);
     case 4:
       const AboutRoute().go(context);

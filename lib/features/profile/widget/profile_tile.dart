@@ -265,59 +265,6 @@ class ProfileActionsMenu extends HookConsumerWidget {
                   .updateProfile(profile as RemoteProfileEntity);
             },
           ),
-        SubmenuButton(
-          menuChildren: [
-            if (profile case RemoteProfileEntity(:final url, :final name)) ...[
-              MenuItemButton(
-                child: Text(t.profile.share.exportSubLinkToClipboard),
-                onPressed: () async {
-                  final link = LinkParser.generateSubShareLink(url, name);
-                  if (link.isNotEmpty) {
-                    await Clipboard.setData(ClipboardData(text: link));
-                    if (context.mounted) {
-                      CustomToast(t.profile.share.exportToClipboardSuccess)
-                          .show(context);
-                    }
-                  }
-                },
-              ),
-              MenuItemButton(
-                child: Text(t.profile.share.subLinkQrCode),
-                onPressed: () async {
-                  final link = LinkParser.generateSubShareLink(url, name);
-                  if (link.isNotEmpty) {
-                    await QrCodeDialog(
-                      link,
-                      message: name,
-                    ).show(context);
-                  }
-                },
-              ),
-            ],
-            MenuItemButton(
-              child: Text(t.profile.share.exportConfigToClipboard),
-              onPressed: () async {
-                if (exportConfigMutation.state.isInProgress) {
-                  return;
-                }
-                exportConfigMutation.setFuture(
-                  ref
-                      .read(profilesOverviewNotifierProvider.notifier)
-                      .exportConfigToClipboard(profile),
-                );
-              },
-            ),
-          ],
-          leadingIcon: const Icon(Icons.share),
-          child: Text(t.profile.share.buttonText),
-        ),
-        MenuItemButton(
-          leadingIcon: const Icon(Icons.edit),
-          child: Text(t.profile.edit.buttonTxt),
-          onPressed: () async {
-            await ProfileDetailsRoute(profile.id).push(context);
-          },
-        ),
         MenuItemButton(
           leadingIcon: const Icon(Icons.delete),
           child: Text(t.profile.delete.buttonTxt),

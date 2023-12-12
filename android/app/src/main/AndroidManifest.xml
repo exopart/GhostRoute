@@ -18,7 +18,7 @@
         android:name=".Application"
         android:icon="@mipmap/ic_launcher"
         android:banner="@mipmap/ic_launcher_banner"
-        android:label="Hiddify Next"
+        android:label="Ghost Route"
         android:roundIcon="@mipmap/ic_launcher_round"
         tools:targetApi="31">
 
